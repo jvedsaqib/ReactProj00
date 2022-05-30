@@ -1,11 +1,20 @@
 import * as React from 'react';
 import './style.css';
+import data from './data.js';
+import List from './List.js';
 
-export default function App() {
+function App() {
+  const [people, setPeople] = React.useState(data);
+
   return (
-    <div>
-      <h1>Hello StackBlitz!</h1>
-      <p>Start editing to see some magic happen :)</p>
-    </div>
+    <main>
+      <section className="container">
+        <h3>{people.length} Birthdays Today</h3>
+        <List people={people} />
+        <button onClick={() => setPeople([])}>Clear</button>
+      </section>
+    </main>
   );
 }
+
+export default App;
